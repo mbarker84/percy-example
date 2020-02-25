@@ -4,7 +4,9 @@
     "start": "http-server -s -p 8000",
     "presnapshots": "http-server -s -p 8000 &",
     "snapshots": "percy exec -- node snapshots.js",
-    "postsnapshots": "pkill -f 'http-server -s -p 8000'"
+    "postsnapshots": "pkill -f 'http-server -s -p 8000'",
+    "snapshots:master": "cross-env PERCY_URL=https://confident-yonath-b6fd80.netlify.com npm run snapshots",
+    "snapshots:branch": "cross-env PERCY_URL=http:localhost:8000 npm run snapshots"
   },
   "dependencies": {
     "todomvc-app-css": "^2.2.0",
@@ -12,6 +14,7 @@
   },
   "devDependencies": {
     "@percy/script": "^1.0.0",
-    "http-server": "^0.11.1"
+    "http-server": "^0.11.1",
+    "cross-env": "^7.0.0"
   }
 }
